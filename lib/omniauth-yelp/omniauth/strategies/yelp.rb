@@ -2,7 +2,7 @@
 require 'omniauth-oauth2'
 module OmniAuth
 	module Strategies
-		class Yelp < OmniAuth::Strategies::OAuth2
+		class yelp < OmniAuth::Strategies::OAuth2
 		  option :name ,"Omniauth-Yelp"
 		  option :client_options, {:site => "https://api.yelp.com"}
 		  uid{raw_info['id']}
