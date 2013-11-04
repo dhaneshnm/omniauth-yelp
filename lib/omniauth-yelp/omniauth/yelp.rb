@@ -1,2 +1,2 @@
-#require 'yelp/version'
-#require 'omniauth/yelp/strategies/'
+require 'omniauth/yelp/version'
+require 'omniauth/strategies/yelp'
