@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.description = "A simple  omniauth gem"
   s.authors     = ["Dhanesh Neela Mana"]
   s.email       = 'dhanesh.n.m19@gmail.com'
-  s.files       = ["lib/omniauth-yelp.rb","lib/omniauth-yelp/translator.rb"]
+  s.files       = `git ls-files`.split("\n") #["lib/omniauth-yelp.rb","lib/omniauth-yelp/translator.rb","lib/omniauth-yelp/omniauth/yelp.rb","lib/omniauth-yelp/omniauth/strategies/yelp.rb","lib/omniauth-yelp/omniauth/yelp/version.rb"]
   s.homepage    = 'https://github.com/intridea/omniauth'
   s.license       = 'https://github.com/intridea/omniauth/blob/master/LICENSE.md'
 end
