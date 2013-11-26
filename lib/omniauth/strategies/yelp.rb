@@ -1,4 +1,3 @@
-require 'omniauth-oauth2'
 require 'cgi'
 require 'uri'
 require 'oauth2'
@@ -7,9 +6,6 @@ require 'timeout'
 require 'securerandom'
 require 'openssl'
 require 'base64'
-require 'cgi'
-#require 'hmac-sha1'
-require "logger"
 require 'net/http'
 module OmniAuth
   module Strategies
