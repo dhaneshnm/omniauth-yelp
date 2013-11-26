@@ -10,15 +10,14 @@ require 'base64'
 require 'cgi'
 #require 'hmac-sha1'
 require "logger"
-
 require 'net/http'
 module OmniAuth
   module Strategies
     class Yelp
       include OmniAuth::Strategy
-      option :client_options, {:site =>"api.yelp.com"}
+      option :yelp_url ,"http://api.yelp.com/v2/search"
       def request_phase
-          url = 'http://api.yelp.com/v2/search?'+request.query_string
+          url = options[:yelp_url]+"?"+request.query_string
           parsed_url = URI.parse( url )
           Net::HTTP.start( parsed_url.host ) { | http |
             params = sign(parsed_url,'GET')
