@@ -12,15 +12,12 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ["lib"]
-  s.files         = `git ls-files`.split("\n")
   s.license       = "MIT"
   s.date        = '2014-11-23'
   s.summary     = "omniauth-yelp!"
-  s.description = "A simple  omniauth gem"
+  s.description = "A simple  omniauth gem for Yelp! API"
   s.authors     = ["Dhanesh Neela Mana"]
   s.email       = 'dhanesh.n.m19@gmail.com'
   s.files       = ["lib/omniauth-yelp.rb","lib/omniauth/yelp.rb","lib/omniauth/strategies/yelp.rb","lib/omniauth/yelp/version.rb"]#git ls-files`.split("\n") 
-  s.homepage    = ''
-  s.license       = ''
 end
 
