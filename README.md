@@ -12,7 +12,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :yelp,:consumer_key => 'your consumer key',:consumer_secret => 'your consumer secret',:token => 'your yelp token',:token_secret => 'your yelp token secret'
 end
 ```
-sample code at contrller action that handles the call back,sya,results_controller#show
+sample code at contrller action that handles the call back,say,results_controller#show
 ```
     def show
       @json_data = JSON.parse(ENV["YelpData"])
