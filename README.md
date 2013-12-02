@@ -1,9 +1,12 @@
 omniauth-yelp
 =============
-
-A ruby gem for yelp search API(OAuth) using omniauth
-_______________________________________________________
-This gem is based on intridea's omniauth gem :- https://github.com/intridea/omniauth/
+A ruby gem for yelp search API(OAuth) using omniauth.Add this gem to your gem file like,
+```
+gem "omniauth-yelp", :git => "git://github.com/dhaneshnm/omniauth-yelp.git"
+```
+_________________________________________________
+This gem is based on intridea's omniauth gem :- https://github.com/intridea/omniauth/.
+I have also used this gist to get a good idea on siging a OAuth request in ruby : https://gist.github.com/erikeldridge/383159 
 ____________________________________________________
 Sample code  at initializers/omniauth.rb
 require 'OmniAuth-yelp'
