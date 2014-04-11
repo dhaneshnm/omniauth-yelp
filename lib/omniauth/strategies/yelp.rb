@@ -4,7 +4,7 @@ require 'oauth2'
 require 'omniauth'
 require 'timeout'
 require 'securerandom'
-require 'openssl' 
+require 'openssl'
 require 'base64'
 require 'net/http'
 module OmniAuth
@@ -13,17 +13,29 @@ module OmniAuth
       include OmniAuth::Strategy
       option :yelp_url ,"http://api.yelp.com/v2/search"
       def request_phase
-          url = options[:yelp_url]+"?"+request.query_string
-          parsed_url = URI.parse( url )
-          Net::HTTP.start( parsed_url.host ) { | http |
-            params = sign(parsed_url,'GET')
-            signed_req = get_query_string(params)
-            req = Net::HTTP::Get.new "#{ parsed_url.path }?#{ signed_req }"
-            response = http.request(req)
-            ENV["YelpData"] = response.read_body
-            re_url = callback_url
-            redirect re_url
-          }
+        consumer = OAuth::Consumer.new(options[:consumer_key], options[:consumer_secret], {
+                        :site               => 'http://api.yelp.com',
+                         :scheme             => :query_string,
+                         :http_method        => :get,
+                         :request_token_path => "/token/request_token",
+                         :access_token_path  => "/token/acess_token",
+                         :authorize_path     => "/login.aspx"
+                       })
+          path  = "/v2/search"+"?"+request.query_string
+          token = OAuth::Token.new(options[:token],options[:token_secret])
+          response = consumer.request(:get,  path,token, { :scheme => :query_string })
+          ENV["YelpData"] = response.read_body
+          # url = options[:yelp_url]+"?"+request.query_string
+          # parsed_url = URI.parse( url )
+          # Net::HTTP.start( parsed_url.host ) { | http |
+          #   params = sign(parsed_url,'GET')
+          #   signed_req = get_query_string(params)
+          #   req = Net::HTTP::Get.new "#{ parsed_url.path }?#{ signed_req }"
+          #   response = http.request(req)
+          #   ENV["YelpData"] = response.read_body
+          #   re_url = callback_url
+          #   redirect re_url
+          # }
       end
       def percent_encode( string )
         return URI.escape( string, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]") ).gsub('*', '%2A')
@@ -36,7 +48,7 @@ module OmniAuth
       end
       def get_query_string params
           pairs = []
-          params.sort.each { | key, val | 
+          params.sort.each { | key, val |
             pairs.push( "#{ percent_encode( key ) }=#{ percent_encode( val.to_s ) }" )
           }
           pairs.join '&'
@@ -54,11 +66,11 @@ module OmniAuth
             params.merge! CGI.parse( parsed_url.query )
           end
           req_url = parsed_url.scheme + '://' + parsed_url.host + parsed_url.path
-          base_str = [ 
-            req_method, 
+          base_str = [
+            req_method,
             percent_encode( req_url ),
-            percent_encode( get_query_string(params) ) 
-            
+            percent_encode( get_query_string(params) )
+
           ].join( '&' )
           params[ 'oauth_signature' ] = signature(base_str)
           return params
