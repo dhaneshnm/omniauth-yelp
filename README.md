@@ -22,6 +22,7 @@ sample code at contrller action that handles the call back,say,results_controlle
     end
 ```
 The serach result will be available in json format at request.env['omniauth.auth']['extra']
+
 sample  search url that app should create to get a result at ENV["YelpData"]
 ```
 	localhost:3000/auth/yelp/?term=cream+puffs&location=San+Francisco
