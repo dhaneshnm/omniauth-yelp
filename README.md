@@ -6,7 +6,7 @@ gem "omniauth-yelp", :git => "git://github.com/dhaneshnm/omniauth-yelp.git"
 ```
 _________________________________________________
 This gem is based on intridea's omniauth gem :- https://github.com/intridea/omniauth/.
-I have also used this gist to get a good idea on siging a OAuth request in ruby : https://gist.github.com/erikeldridge/383159 
+I have also used this gist to get a good idea on siging a OAuth request in ruby : https://gist.github.com/erikeldridge/383159
 ____________________________________________________
 Sample code  at initializers/omniauth.rb
 require 'OmniAuth-yelp'
@@ -20,12 +20,13 @@ sample code at contrller action that handles the call back,say,results_controlle
     def show
       @json_data = request.env['omniauth.auth']['extra']
     end
-```    
+```
+The serach result will be available in json format at request.env['omniauth.auth']['extra']
 sample  search url that app should create to get a result at ENV["YelpData"]
 ```
 	localhost:3000/auth/yelp/?term=cream+puffs&location=San+Francisco
-```	
-sample code to construct a search url from a serach form in rails(in haml)	
+```
+sample code to construct a search url from a serach form in rails(in haml)
 ```
     %form{:action => "/auth/yelp/", :method => "GET"}
 	  %label{:for => "term"} Search term
@@ -35,8 +36,8 @@ sample code to construct a search url from a serach form in rails(in haml)
 	  %input{:name => "location",:value => "San Francisco"}/
 	  %br/
 	  %input{:type => "submit"}/
-```	  
-sample code to construct a search url from a serach form in rails(in html)	
+```
+sample code to construct a search url from a serach form in rails(in html)
 ```
     <from action ="/auth/yelp/" method = "GET">
 	  <label for="term">Search term</label>
@@ -47,4 +48,4 @@ sample code to construct a search url from a serach form in rails(in html)
 	  <br/>
 	  <input type="submit"/>
     </from>
-```    
+```

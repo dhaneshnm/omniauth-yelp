@@ -11,13 +11,14 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'simplecov'
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.homepage   = 'https://github.com/dhaneshnm/omniauth-yelp'
   s.require_paths = ["lib"]
   s.license       = "MIT"
-  s.date        = '2014-11-23'
+  s.date        = '2014-04-12'
   s.summary     = "omniauth-yelp!"
   s.description = "A simple  omniauth gem for Yelp! API"
   s.authors     = ["Dhanesh Neela Mana"]
   s.email       = 'dhanesh.n.m19@gmail.com'
-  s.files       = ["lib/omniauth-yelp.rb","lib/omniauth/yelp.rb","lib/omniauth/strategies/yelp.rb","lib/omniauth/yelp/version.rb"]#git ls-files`.split("\n") 
+  s.files       = ["lib/omniauth-yelp.rb","lib/omniauth/yelp.rb","lib/omniauth/strategies/yelp.rb","lib/omniauth/yelp/version.rb"]#git ls-files`.split("\n")
 end
 
