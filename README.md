@@ -18,7 +18,7 @@ end
 sample code at contrller action that handles the call back,say,results_controller#show
 ```
     def show
-      @json_data = JSON.parse(ENV["YelpData"])
+      @json_data = request.env['omniauth.auth']['extra']
     end
 ```    
 sample  search url that app should create to get a result at ENV["YelpData"]
