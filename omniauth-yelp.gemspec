@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'omniauth-oauth2', '~> 1.0'
   s.add_dependency 'oauth2', '~> 0.8.1'
   s.name        = 'omniauth-yelp'
-  s.version     = '0.0.0'
+  s.version     = '1.0.0'
   s.add_development_dependency 'rspec', '~> 2.7'
   s.add_development_dependency 'rack-test'
   s.add_development_dependency 'webmock'
