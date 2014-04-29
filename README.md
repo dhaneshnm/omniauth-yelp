@@ -2,7 +2,7 @@ omniauth-yelp
 =============
 A ruby gem for yelp search API(OAuth) using omniauth.Add this gem to your gem file like,
 ```
-gem "omniauth-yelp-v1", :git => "git://github.com/dhaneshnm/omniauth-yelp.git"
+gem "omniauth-yelp", :git => "git://github.com/dhaneshnm/omniauth-yelp.git"
 ```
 or 
 
